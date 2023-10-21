@@ -11,5 +11,5 @@ Package requirements: pydicom=2.4.3, pandas<br>
 Software requirements: MRIcroGL, You can download it from this website:
 https://www.nitrc.org/projects/mricrogl
 
-<br><br>
+<br>
 If there is any problem, please contact me.
