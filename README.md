@@ -7,7 +7,8 @@ Implement on Matlab or Python.
 # Dicom2Nifti
 Convert dicom to nifti.
 Implement on Python.
-Requirement: MRIcroGL, You can download it from this website:
+Package requirements: pydicom=2.4.3, pandas
+Software requirements: MRIcroGL, You can download it from this website:
 https://www.nitrc.org/projects/mricrogl
 
 
