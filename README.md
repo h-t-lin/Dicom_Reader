@@ -1,4 +1,7 @@
-Now python version is available!
+Now python version is available!<br>
+Updating News:<br>
+  -bug fixes
+  -stability enhancement
 
 # Dicom_Reader
 Read dicom headers, and convert headers to excel file.<br>
