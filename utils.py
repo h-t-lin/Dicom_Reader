@@ -1,20 +1,15 @@
 import os
 
-def make_dir_if_not_exist(dir, show_response=True):
-    if not os.path.isdir(dir):
-        os.mkdir(dir)
-    elif show_response:
-        print(f"\nFolder {dir}\n    is already existed.")
-
-
 def DicomFinder(root):
     '''
-    return: list of dictionaries.\n
-    dictionary: {\n
-        'path':  path of dicom\n
-        'folder':  path of folder of dicoms\n
-        'subject':  name of subject\n
+    return: list of dictionaries.  
+    > ```python
+    dictionary = {
+        'path':  path of dicom,
+        'folder':  path of folder of dicoms,
+        'subject':  name of subject
     }
+    > ```
     '''
     if os.path.isdir(root):
         dcmlist = traverser(root, [], root)

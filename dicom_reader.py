@@ -8,18 +8,39 @@ def main():
 
     print('*\n*\n----START----\n')
 
-    # TODO
+    '''
+    Path format example:
+    inmainfolder >> 
+        # all series of Dicom are saved in "inmainfolder"
+        | series01 >> 
+            | 001.dcm
+            | 002.dcm
+            | ...
+        | series02
+            | 001.dcm
+            | 002.dcm
+            | ...
+        | series03
+        | ...
+    
+    outfolder >> 
+        # The output excel will be saved in "outmainfolder"
+        | tempinfo.xlsx
+        | ...
+    '''
+    # TODO: 
     # Set input and output folder path.
     # Specify certain modality and dicom attributes you want to extract.
     outfolder = ""
-    infolder = ""
+    inmainfolder = ""
     MODALITY = 'PT'
     HEADERS = [
         'AcquisitionDate',
         'Modality',
     ]
 
-    dicom_path_dict = DicomFinder(infolder)
+    assert os.path.isdir(inmainfolder), 'Wrong path of dicom folder'
+    dicom_path_dict = DicomFinder(inmainfolder)
     data = []
     for dcm in dicom_path_dict:
         # read dicom header
@@ -30,14 +51,14 @@ def main():
                 if hdr in dicom_info:
                     infodict[hdr] = dicom_info[hdr].value
             data.append(infodict)
-            print(f'Reading {dcm["subject"]}.')
-    
+
     # export excel file
-    print('\nExporting excel...')
+    assert len(data)!=0, 'Find No File'
     df = pd.DataFrame(data)
-    df.to_excel(os.path.join(outfolder, 'dcminfo.xlsx'), sheet_name=MODALITY, index=False)
+    df.to_excel(os.path.join(outfolder, 'tempinfo.xlsx'), sheet_name=MODALITY, index=False)
 
     print('*\n*\n----FINISHED----\n')
+    print(df)
 
 
 if __name__ == "__main__":
