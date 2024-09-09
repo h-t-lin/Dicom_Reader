@@ -17,7 +17,7 @@ def main():
             | 001.dcm
             | 002.dcm
             | ...
-        | series02
+        | series02 >> 
             | 001.dcm
             | 002.dcm
             | ...
